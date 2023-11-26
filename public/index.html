@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOCKET SERVER </title>
+</head>
+<body>
+     <H1>ACCESO DENEGADO...........!!</H1>
+
+   
+     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+     <script>
+
+// ------------- SE CONECTA  Y DESCONECTA AL SERVIDOR  ---------//
+
+var  socket = io();
+
+socket.on('connect',function () {
+     console.log(' usuario WEB CONECTADO AL Servidor');
+    
+});
+socket.on('disconnect',function () {
+     console.log(' usuario WEB Desconectado....XXXXX ');
+    
+});
+
+// ------------- SE EMVIA MENSAJESS AL SERVIDOR  ---------//
+
+socket.emit('mensaje',{nombre: 'David'});
+
+socket.on('mensaje',function (payload) {
+     console.log(' usuario WEB recibe mensaje ', payload);
+    
+});
+
+     </script>
+</body>
+</html>
